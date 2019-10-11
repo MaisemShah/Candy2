@@ -1,0 +1,53 @@
+﻿@page
+@model Candy2.Pages.CandStore.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <style>
+        body{
+            background-color:darkgreen;
+        }
+        img.aas{
+            height:1321px;
+            width:532px;
+        }
+
+    </style>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CandyStore[0].CSAreaSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandyStore[0].CSLocation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CandyStore) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSAreaSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSLocation)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CSID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CSID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CSID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<img class="aas" src="https://ewscripps.brightspotcdn.com/dims4/default/ea41b77/2147483647/strip/true/crop/1920x1080+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2Fda%2F81%2Ff79df6ee4fac8cbb9631b997390b%2Funtitled-design-1.jpg" alt="Alternate Text" />

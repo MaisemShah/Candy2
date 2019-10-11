@@ -1,0 +1,58 @@
+﻿@page
+@model Candy2.Pages.Candies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <style>
+        body{
+            background-color:chocolate;
+        }
+        img.lk{
+            height:1000px;
+            width:800px;
+        }
+    </style>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Candy[0].CFlavor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candy[0].CSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candy[0].CandStore)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CFlavor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CandStore.CSID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<img class="lk" src="http://irepo.primecp.com/2018/09/386259/Candy-Dish-Layer-Cake_ExtraLarge1000_ID-2906327.jpg?v=2906327" alt="Alternate Text" />

@@ -1,0 +1,45 @@
+﻿@page
+@model Candy2.Pages.Candies.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Candy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Candy.CID" />
+            <div class="form-group">
+                <label asp-for="Candy.CFlavor" class="control-label"></label>
+                <input asp-for="Candy.CFlavor" class="form-control" />
+                <span asp-validation-for="Candy.CFlavor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candy.CSize" class="control-label"></label>
+                <input asp-for="Candy.CSize" class="form-control" />
+                <span asp-validation-for="Candy.CSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candy.CSID" class="control-label"></label>
+                <select asp-for="Candy.CSID" class="form-control" asp-items="ViewBag.CSID"></select>
+                <span asp-validation-for="Candy.CSID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

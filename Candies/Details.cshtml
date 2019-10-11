@@ -1,0 +1,37 @@
+﻿@page
+@model Candy2.Pages.Candies.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Candy</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candy.CFlavor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candy.CFlavor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candy.CSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candy.CSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Candy.CandStore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Candy.CandStore.CSID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Candy.CID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
